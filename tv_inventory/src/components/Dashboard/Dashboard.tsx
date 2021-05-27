@@ -18,10 +18,11 @@ import { Drawer as MUIDrawer,
 import CssBaseline from '@material-ui/core/CssBaseline';
 import MenuIcon from '@material-ui/icons/Menu'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight'
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import clsx from 'clsx';
 import { RouteComponentProps, withRouter, Switch, Route } from "react-router-dom";
 import { DataTable } from '../../components';
+import TvIcon from '@material-ui/icons/Tv';
 
 const drawerWidth = 240;
 
@@ -34,6 +35,7 @@ createStyles({
       transition: theme.transitions.create(['margin', 'width'], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen
+        
       })
     },
     appBarShift: {
@@ -125,14 +127,14 @@ export const Dashboard = withRouter((props:DashProps) => {
     return(
         <div className={classes.root}>
             <CssBaseline />
-            <AppBar position="fixed" className={clsx(classes.appBar, {[classes.appBarShift]: open})}>
+            <AppBar position="fixed" style= {{background: '#b39ddb'}} className={clsx(classes.appBar, {[classes.appBarShift]: open})}>
                 <Toolbar className={classes.toolbar}>
                     <IconButton color="inherit" 
                     aria-label="open drawer" 
                     onClick={handleDrawerOpen} 
                     edge="start" 
                     className={clsx(classes.menuButton, open && classes.hide)}>
-                        <MenuIcon/> 
+                        <TvIcon/> 
                     </IconButton>
                     <Typography variant="h6" noWrap>
                         Dashboard
