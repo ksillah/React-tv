@@ -1,12 +1,13 @@
 import React from 'react';
 import { DataGrid, GridColDef, GridValueGetterParams } from '@material-ui/data-grid';
+import {useGetData} from '../../custom-hooks'
 
 const columns: GridColDef[] = [
-    { field: 'id', headerName: 'ID', width: 70 },
-    { field: 'show', headerName: 'TV Show', width: 130 },
-    { field: 'season', headerName: 'Season', type: 'number', width: 90,},
+    { field: 'id', headerName: 'ID', width: 60 },
+    { field: 'show', headerName: 'TV Show', width: 150 },
+    { field: 'season', headerName: 'Season', type: 'number', width: 130,},
     {field: 'episode', headerName: 'Episode', width: 130,},
-    {field: 'rating', headerName: 'Rating', type: 'number', width:90,}
+    {field: 'rating', headerName: 'Rating', type: 'number', width:130,}
     
   ];
 
@@ -20,10 +21,11 @@ const columns: GridColDef[] = [
 
 
   export const DataTable = () => {
+    let{reviewData, getData} = useGetData();
     return (
         <div style={{ height: 400, width: '100%' }}>
-          <h2>Operators Drone Inventory</h2>
-          <DataGrid rows={rows} columns={columns} pageSize={5} checkboxSelection />
+          <h2>Your Tv Reviews</h2>
+          <DataGrid rows={reviewData} columns={columns} pageSize={5} checkboxSelection />
         </div>
       );
 };

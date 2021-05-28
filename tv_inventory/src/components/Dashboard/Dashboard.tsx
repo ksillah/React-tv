@@ -100,7 +100,7 @@ interface DashProps{
     match: RouteComponentProps['match']
 }
 export const Dashboard = withRouter((props:DashProps) => {
-    console.log(props)
+    //console.log(props)
     const{history} = props;
     const classes = useStyles();
     const theme = useTheme();
@@ -162,8 +162,6 @@ export const Dashboard = withRouter((props:DashProps) => {
             </MUIDrawer>
             <main className={clsx(classes.content, {[classes.contentShift]: open,})}>
                 <div className={classes.drawerHeader} />
-
-                    <h1>Hello World Until Data Shows Up</h1>
                     <DataTable /> 
                 
             </main>
