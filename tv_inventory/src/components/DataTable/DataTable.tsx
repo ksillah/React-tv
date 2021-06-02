@@ -1,6 +1,9 @@
 import React from 'react';
 import { DataGrid, GridColDef, GridValueGetterParams } from '@material-ui/data-grid';
 import {useGetData} from '../../custom-hooks'
+import { makeStyles } from '@material-ui/core';
+import {Theme, createStyles} from '@material-ui/core';
+import netflix_image from '../../assests/images/netflix.jpg';
 
 const columns: GridColDef[] = [
     { field: 'id', headerName: 'ID', width: 60 },
@@ -11,21 +14,28 @@ const columns: GridColDef[] = [
     
   ];
 
-  const rows = [
-    { id: 1, show: 'As Told By Ginger', season:1 , episode: 'My First Day', rating: 9},
-    { id: 2, show: 'The Detroiters', season: 1, episode: 'Dream Cruise', rating:10 },
-    { id: 3, show: '90 Day Fiance: Happily Ever After', season:6 , episode: 'Damage Control', rating:4 },
-    { id: 4, show: 'This Is Us', season:5 , episode: 'The Adirondacks', rating:8 },
-    { id: 5, show: 'Good Girls', season:4 , episode: 'Chef Boyardee', rating:7 },
-  ];
-
+const useStyles = makeStyles( (theme:Theme) =>
+  createStyles({
+  main: {
+    //backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${netflix_image});`,
+    width: '100%',
+    height: '100%',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    position: 'absolute',
+  },
+}));
 
   export const DataTable = () => {
     let{reviewData, getData} = useGetData();
+    const classes = useStyles();
     return (
         <div style={{ height: 400, width: '100%' }}>
-          <h2>Your Tv Reviews</h2>
+          <main className={classes.main}>
+          <h2>Your Tv Ratings</h2>
           <DataGrid rows={reviewData} columns={columns} pageSize={5} checkboxSelection />
+          </main>
         </div>
       );
 };

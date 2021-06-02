@@ -5,25 +5,30 @@ import "./styles.css"
 import reportWebVitals from './reportWebVitals';
 // Import From react-router-dom
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {Provider} from 'react-redux';
+import {store} from './redux/store';
+
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <Switch>
+    <Provider store={store}>
+      <Router>
+        <Switch>
 
-        <Route exact path='/'>
-          <Home title={'TV Inventory'}/>
-        </Route>
+          <Route exact path='/'>
+            <Home title={'TV Inventory'}/>
+          </Route>
 
-        <Route path='/dashboard'>
-          <Dashboard></Dashboard>
-        </Route>
+          <Route path='/dashboard'>
+            <Dashboard></Dashboard>
+          </Route>
 
-        <Route path='/signin'>
-          <SignIn></SignIn>
-        </Route>
+          <Route path='/signin'>
+            <SignIn></SignIn>
+          </Route>
 
-      </Switch>
-    </Router>
+        </Switch>
+      </Router>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

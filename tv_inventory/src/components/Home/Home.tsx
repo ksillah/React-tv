@@ -108,7 +108,6 @@ export const Home = ( props:Props)=>{
             <main className={classes.main}>
                 <div className={classes.main_text}>
                     <h1>{ props.title }</h1>
-                    <p>I love watching tv!</p>
                     <Link to='dashboard'> 
                         <Button color='primary' variant="contained">Click Me</Button>
                     </Link>
