@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector, useStore } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { chooseEpisode } from '../../redux/slices/rootSlice';
+import { chooseEpisode, chooseRating, chooseSeason, chooseShow } from '../../redux/slices/rootSlice';
 import { Input } from '../sharedComponents/Input';
 import { Button } from '@material-ui/core';
 
@@ -17,6 +17,8 @@ interface ReviewFormProps {
 interface ReviewState {
     episode: string;
     show: string;
+    rating: number;
+    season: number;
 }
 
 export const ReviewForm = (props:ReviewFormProps) => {
@@ -25,6 +27,9 @@ export const ReviewForm = (props:ReviewFormProps) => {
     let { reviewData, getData } = useGetData();
     const store = useStore()
     const episode = useSelector<ReviewState>(state => state.episode)
+    const show = useSelector<ReviewState>(state => state.show)
+    const rating = useSelector<ReviewState>(state => state.rating)
+    const season= useSelector<ReviewState>(state => state.season)
     const { register, handleSubmit } = useForm({ })
 
     const onSubmit = (data:any, event:any) => {
@@ -33,12 +38,13 @@ export const ReviewForm = (props:ReviewFormProps) => {
         if( props.id!){
             server_calls.update(props.id!, data)
             console.log(`Updated:${data} ${props.id}`)
-            window.location.reload()
-            event.target.reset();
+            
         } else {
             dispatch(chooseEpisode(data.episode))
+            dispatch(chooseShow(data.show))
+            dispatch(chooseRating(data.rating))
+            dispatch(chooseSeason(data.season))
             server_calls.create(store.getState())
-            window.location.reload()
         }
     }
 

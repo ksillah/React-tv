@@ -1,5 +1,6 @@
 let token = `f70c0c9db319fa659ee2efc15d590deafa70416b14921c8b`
 
+
 export const server_calls = {
     get: async () => {
         const response = await fetch('https://tv-inventory.herokuapp.com/api/reviews',{

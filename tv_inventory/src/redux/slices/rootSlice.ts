@@ -10,10 +10,13 @@ const rootSlice = createSlice({
     },
     reducers: {
         chooseEpisode: (state, action) => { state.episode = action.payload},
-        chooseShow: (state, action) => { state.show = action.payload}
+        chooseShow: (state, action) => { state.show = action.payload},
+        chooseSeason: (state, action) => { state.season = action.payload},
+        chooseRating: (state, action) => { state.rating = action.payload}
+
     }
 })
 
 // Export Reducer
 export const reducer = rootSlice.reducer;
-export const { chooseEpisode, chooseShow, } = rootSlice.actions;
+export const { chooseEpisode, chooseShow, chooseRating, chooseSeason} = rootSlice.actions;
