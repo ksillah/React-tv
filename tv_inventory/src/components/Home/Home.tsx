@@ -1,4 +1,5 @@
 import React from 'react';
+import { AuthCheck } from 'reactfire';
 import { makeStyles } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import netflix_image from '../../assests/images/netflix.jpg';
@@ -96,19 +97,26 @@ export const Home = ( props:Props)=>{
                             <li>
                                 <Link to='/' href="" className={classes.nav_a}>Home</Link>
                             </li>
-                            <li>
-                                <Link to="/dashboard" className={classes.nav_a}>Dashboard</Link>
-                            </li>
+                            <AuthCheck fallback={
                             <li>
                                 <Link to="/signin" className={classes.nav_a}>Sign In</Link>
                             </li>
+                        }>
+                        
+                        <li>
+                            <Link to="/dashboard" className={classes.nav_a}>Dashboard</Link>
+                        </li>
+                        <li>
+                            <Link to="/signin" className={classes.nav_a}>Sign Out</Link>
+                        </li>
+                        </AuthCheck>
                     </ul>
                 </div>
             </nav>
             <main className={classes.main}>
                 <div className={classes.main_text}>
                     <h1>{ props.title }</h1>
-                    <Link to='dashboard'> 
+                    <Link to='signin'> 
                         <Button color='primary' variant="contained">Click Me</Button>
                     </Link>
                 </div>

@@ -70,9 +70,9 @@ const useStyles = makeStyles( (theme:Theme) =>
     
               {/*Dialog Pop Up begin */}
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-              <DialogTitle id="form-dialog-title">Update Drone Drone</DialogTitle>
+              <DialogTitle id="form-dialog-title">Update Review </DialogTitle>
               <DialogContent>
-                <DialogContentText>Update Drone</DialogContentText>
+                <DialogContentText>Update Review</DialogContentText>
                   <ReviewForm id={gridData.data.id!}/>
               </DialogContent>
               <DialogActions>
